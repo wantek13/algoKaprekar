@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>indien LARUE Vincent</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <h1 class="card-title">Algorithme Indien</h1>
+            <figure>
+                <figcaption>Listen to Bollywood:</figcaption>
+                <audio
+                    controls
+                    src="musica/musique.mp3">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                </audio>
+            </figure>
+        </div>
+        <div id="card-body">
+            <p id="test"></p>
+            <p id="test2"></p>
+            <p id="test3"></p>
+        </div>
+    </div>
+
+    <iframe id="a" src="https://giphy.com/embed/xT1R9SzWO4u7a2Y5BS" width="250" height="250" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    <iframe id="b" src="https://giphy.com/embed/7SIdigi2zm0yoxCYed" width="250" height="250" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    <iframe id="c" src="https://giphy.com/embed/DRE0QCNMEY1l6" width="250" height="250" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    <iframe id="d" src="https://giphy.com/embed/bY6cs9fmknyLe" width="250" height="250" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+    <script>
+        
+        var total = prompt('entrez un nombre entre 100 et 999');
+
+        var tabResult = [];
+        var iterations = 0;
+
+        var newDiv = document.createElement("p");
+        var newContent = document.createTextNode('le chifre entré par le user est: ' + total);
+        newDiv.appendChild(newContent);
+
+        var currentDiv = document.getElementById('card-body');
+        currentDiv.appendChild(newDiv);
+        do
+        {
+            iterations++;    
+        
+            //on passe le int en string
+            totalString = total.toString();
+
+            //on passe le string en tableau
+            tab = totalString.split('');
+
+            //tri du plus petit au plus grand
+            string1 = tab.sort();
+
+            //join tout pour passer de tableau a string
+            string1join = string1.join("");
+
+            //passer de string a int
+            val1 = parseInt(string1join);
+
+            //tri du plus grand au plus petit
+            string2 = string1.reverse();
+
+            //join tout pour passer de tableau a string
+            string2join = string2.join("");
+
+            //passer de string a int
+            val2 = parseInt(string2join);
+
+            var newDiv = document.createElement("p");
+            var newContent = document.createTextNode('la valeur 1 est : ' + val1);
+            newDiv.appendChild(document.createElement("br"));
+            newDiv.appendChild(newContent);
+
+            var newContent = document.createTextNode('la valeur 2 est : ' + val2);
+            newDiv.appendChild(document.createElement("br"));
+            newDiv.appendChild(newContent);
+
+            var currentDiv = document.getElementById('card-body');
+            currentDiv.appendChild(newDiv);
+
+            total = val2 - val1;
+
+            var newContent = document.createTextNode('le resultat de la soustraction est : ' + total);
+            newDiv.appendChild(document.createElement("br"));
+            newDiv.appendChild(newContent);
+
+            var currentDiv = document.getElementById('card-body');
+            currentDiv.appendChild(newDiv);
+            
+            var newTotal = tabResult.push(total);
+            
+            tabResult[tabResult.length-1] = total;
+        }
+        while(tabResult[tabResult.length-2] != tabResult[tabResult.length-1]);
+
+        var newContent = document.createTextNode('nombre d\'itérations total : ' + iterations);
+        newDiv.appendChild(document.createElement("br"));
+        newDiv.appendChild(document.createElement("br"));
+        newDiv.appendChild(newContent);
+
+        var currentDiv = document.getElementById('card-body');
+        currentDiv.appendChild(newDiv);
+    </script>
+</body>
+</html>
